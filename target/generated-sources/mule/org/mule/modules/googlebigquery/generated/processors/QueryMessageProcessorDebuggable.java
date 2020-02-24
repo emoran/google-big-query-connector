@@ -17,7 +17,7 @@ import org.mule.util.ClassUtils;
 import org.mule.util.TemplateParser;
 
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T11:14:31-05:00", comments = "Build UNNAMED.2810.4347dd1")
+@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T02:17:32-05:00", comments = "Build UNNAMED.2810.4347dd1")
 public class QueryMessageProcessorDebuggable
     extends QueryMessageProcessor
     implements DebugInfoProvider

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/google-big-query" prefix="google-big-query">
-  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="GoogleBigQuery" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.8.0,8.0.0]" caption="Unofficial Google Big Query" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric"></global-cloud-connector>
   <nested caption="" description="" localId="connection-pooling-profile" abstract="true">
     <radioBoolean name="defaultPoolingProfile" caption="Use default connection pool configuration" description="Use default connection pool configuration." fillLine="true"></radioBoolean>
     <radioBoolean name="customPoolingProfile" caption="Define connection pool configuration" description="Define connection pool configuration." fillLine="true"></radioBoolean>
@@ -32,7 +32,7 @@
     <classname name="class" caption="Class" description="A class that implements the RetryPolicyTemplate interface." controlled="customReconnection" indented="true"></classname>
     <childElement allowMultiple="true" name="http://www.springframework.org/schema/beans/property" caption="Properties" description="Property elements." controlled="customReconnection"></childElement>
   </nested>
-  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="GoogleBigQuery: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/google-big-query-connector-small.png" localId="config" image="icons/theme.classic/google-big-query-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/google-big-query/parentConfig" connectivityTesting="on" connectivityTestingLabel="Test Connection..." metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+  <global-cloud-connector versions="[3.8.0,8.0.0]" caption="Unofficial Google Big Query: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/google-big-query-connector-small.png" localId="config" image="icons/theme.classic/google-big-query-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/google-big-query/parentConfig" connectivityTesting="on" connectivityTestingLabel="Test Connection..." metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
     <attribute-category caption="General" description="Google-big-query configuration properties.">
       <group id="google-big-queryGenericProperties" caption="Basic Settings">
         <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
@@ -61,20 +61,20 @@
       </group>
     </attribute-category>
   </cloud-connector>
-  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.google-big-query" caption="GoogleBigQuery" description="" icon="icons/theme.classic/google-big-query-connector-small.png" localId="google-big-query-connector" image="icons/theme.classic/google-big-query-connector-large.png" extends="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric">
+  <cloud-connector versions="[3.8.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.google-big-query" caption="Unofficial Google Big Query" description="" icon="icons/theme.classic/google-big-query-connector-small.png" localId="google-big-query-connector" image="icons/theme.classic/google-big-query-connector-large.png" extends="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric">
     <attribute-category caption="General" description="General.">
       <group id="google-big-queryConnectorGeneric" caption="Basic Settings">
         <modeSwitch alwaysCombo="true" name="Google-big-query operations to execute" caption="Operation" description="Operation.">
-          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric" versions="[3.8.0,8.0.0]" connector-name="processor"></no-operation>
           <mode modeId="http://www.mulesoft.org/schema/mule/google-big-query/query" modeLabel="Query"></mode>
         </modeSwitch>
       </group>
     </attribute-category>
   </cloud-connector>
-  <cloud-connector returnType="java.lang.String" caption="Query" icon="icons/theme.classic/google-big-query-connector-small.png" localId="query" image="icons/theme.classic/google-big-query-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric" metaData="static">
+  <cloud-connector returnType="com.google.cloud.bigquery.TableResult" caption="Query" icon="icons/theme.classic/google-big-query-connector-small.png" localId="query" image="icons/theme.classic/google-big-query-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric" metaData="static">
     <attribute-category caption="General" description="General.">
       <group id="general" caption="General">
-        <string name="queryString" caption="Query String" description="" required="true" javaType="java.lang.String"></string>
+        <string name="queryString" caption="Query String" description="The query to execute against google big query." required="true" javaType="java.lang.String"></string>
       </group>
     </attribute-category>
   </cloud-connector>

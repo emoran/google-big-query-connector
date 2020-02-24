@@ -42,7 +42,7 @@ import org.mule.modules.googlebigquery.generated.pooling.DevkitGenericKeyedObjec
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T11:14:31-05:00", comments = "Build UNNAMED.2810.4347dd1")
+@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T02:17:32-05:00", comments = "Build UNNAMED.2810.4347dd1")
 public class GoogleBigQueryConnectorConfigConnectionManagementConnectionManager
     extends ExpressionEvaluatorSupport
     implements MetadataAware, MuleContextAware, ProcessAdapter<GoogleBigQueryConnectorConnectionManagementAdapter> , Capabilities, Disposable, Initialisable, Testable, ConnectionManagementConnectionManager<ConnectionManagementConfigGoogleBigQueryConnectorConnectionKey, GoogleBigQueryConnectorConnectionManagementAdapter, ConnectorConfig>
@@ -68,11 +68,11 @@ public class GoogleBigQueryConnectorConfigConnectionManagementConnectionManager
     private KeyedObjectPool connectionPool;
     protected PoolingProfile poolingProfile;
     protected RetryPolicyTemplate retryPolicyTemplate;
-    private final static String MODULE_NAME = "GoogleBigQuery";
-    private final static String MODULE_VERSION = "1.0.0";
+    private final static String MODULE_NAME = "Unofficial Google Big Query";
+    private final static String MODULE_VERSION = "1.0.3";
     private final static String DEVKIT_VERSION = "3.9.4";
     private final static String DEVKIT_BUILD = "UNNAMED.2810.4347dd1";
-    private final static String MIN_MULE_VERSION = "3.5.0";
+    private final static String MIN_MULE_VERSION = "3.8";
 
     /**
      * Sets serviceAccountId

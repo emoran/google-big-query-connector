@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T11:14:31-05:00", comments = "Build UNNAMED.2810.4347dd1")
+@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T02:17:32-05:00", comments = "Build UNNAMED.2810.4347dd1")
 public class GoogleBigQueryConnectorLifecycleInjectionAdapter
     extends GoogleBigQueryConnectorMetadataAdapter
     implements MuleContextAware, Disposable, Initialisable, Startable, Stoppable
@@ -47,7 +47,7 @@ public class GoogleBigQueryConnectorLifecycleInjectionAdapter
         throws InitialisationException
     {
         Logger log = LoggerFactory.getLogger(GoogleBigQueryConnectorLifecycleInjectionAdapter.class);
-        MuleVersion connectorVersion = new MuleVersion("3.5.0");
+        MuleVersion connectorVersion = new MuleVersion("3.8");
         MuleVersion muleVersion = new MuleVersion(MuleManifest.getProductVersion());
         if (!muleVersion.atLeastBase(connectorVersion)) {
             throw new InitialisationException(CoreMessages.minMuleVersionNotMet(this.getMinMuleVersion()), this);

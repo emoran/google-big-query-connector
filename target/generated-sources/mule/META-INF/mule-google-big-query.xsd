@@ -57,7 +57,7 @@
         </xs:attribute>
         <xs:attribute type="xs:string" use="required" name="queryString">
           <xs:annotation>
-            <xs:documentation></xs:documentation>
+            <xs:documentation>The query to execute against google big query</xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>

@@ -1,6 +1,7 @@
 
 package org.mule.modules.googlebigquery.generated.processors;
 
+import com.google.cloud.bigquery.TableResult;
 import java.util.List;
 import javax.annotation.Generated;
 import org.mule.api.MuleEvent;
@@ -36,7 +37,7 @@ import org.mule.security.oauth.callback.ProcessCallback;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T11:14:31-05:00", comments = "Build UNNAMED.2810.4347dd1")
+@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T02:17:32-05:00", comments = "Build UNNAMED.2810.4347dd1")
 public class QueryMessageProcessor
     extends DevkitBasedMessageProcessor
     implements MessageProcessor, OperationMetaDataEnabled
@@ -135,7 +136,7 @@ public class QueryMessageProcessor
 
     @Override
     public Result<MetaData> getOutputMetaData(MetaData inputMetadata) {
-        MetaDataModel metaDataPayload = getPojoOrSimpleModel(String.class);
+        MetaDataModel metaDataPayload = getPojoOrSimpleModel(TableResult.class);
         DefaultMetaDataKey keyForStudio = new DefaultMetaDataKey("OUTPUT_METADATA", null);
         metaDataPayload.addProperty(STUDIO7157 .getStructureIdentifierMetaDataModelProperty(keyForStudio, false, false));
         return new DefaultResult<MetaData>(new DefaultMetaData(metaDataPayload));
