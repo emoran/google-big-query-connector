@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.emoran.DataSetResult;
 import org.mule.api.annotations.Config;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
@@ -11,6 +12,9 @@ import org.mule.api.annotations.Processor;
 import org.mule.modules.googlebigquery.config.ConnectorConfig;
 
 import com.google.cloud.bigquery.BigQuery;
+import com.google.cloud.bigquery.BigQueryException;
+import com.google.cloud.bigquery.Dataset;
+import com.google.cloud.bigquery.DatasetInfo;
 import com.google.cloud.bigquery.Job;
 import com.google.cloud.bigquery.JobId;
 import com.google.cloud.bigquery.JobInfo;
@@ -70,6 +74,33 @@ public class GoogleBigQueryConnector {
     		
     		return result;
     }
+    
+    /**
+     * Custom processor
+     * @param datasetName  Name of the dataSet
+     * @return DataSetResult
+     */
+    @Processor
+    public DataSetResult createDataSet(String datasetName) {
+    		bigquery = config.bigquery;
+		DataSetResult result = new DataSetResult();
+		try {
+			
+			DatasetInfo datasetInfo = DatasetInfo.newBuilder(datasetName).build();
+
+			Dataset newDataset = bigquery.create(datasetInfo);
+			String newDatasetName = newDataset.getDatasetId().getDataset();			
+			result.setDatasetName(newDatasetName);
+			result.setDatasetId(String.valueOf(newDataset.getDatasetId()));
+			result.setResultMessage(newDatasetName + " created successfully");
+			result.setCreated(true);
+	    } 
+		catch (BigQueryException e) {
+			result.setResultMessage(e.getMessage());
+			result.setCreated(false);
+	    }		
+		return result;
+	}
 
     public ConnectorConfig getConfig() {
         return config;

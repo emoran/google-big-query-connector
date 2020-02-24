@@ -66,8 +66,16 @@
       <group id="google-big-queryConnectorGeneric" caption="Basic Settings">
         <modeSwitch alwaysCombo="true" name="Google-big-query operations to execute" caption="Operation" description="Operation.">
           <no-operation abstractElement="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric" versions="[3.8.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/google-big-query/create-data-set" modeLabel="Create data set"></mode>
           <mode modeId="http://www.mulesoft.org/schema/mule/google-big-query/query" modeLabel="Query"></mode>
         </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.emoran.DataSetResult" caption="Create Data Set" icon="icons/theme.classic/google-big-query-connector-small.png" localId="create-data-set" image="icons/theme.classic/google-big-query-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="datasetName" caption="Dataset Name" description="Name of the dataSet." required="true" javaType="java.lang.String"></string>
       </group>
     </attribute-category>
   </cloud-connector>

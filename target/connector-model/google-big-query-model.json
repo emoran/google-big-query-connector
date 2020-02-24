@@ -80,6 +80,45 @@
       "friendlyName": "Query",
       "description": "Custom processor",
       "xsdName": "query"
+    },
+    {
+      "isPaged": false,
+      "isBatch": false,
+      "samples": [],
+      "javaReturnType": {
+        "javaTypeName": "DataSetResult",
+        "fullQualifiedJavaTypeName": "org.emoran.DataSetResult",
+        "isOptional": false,
+        "isRefOnly": false,
+        "isPayload": false,
+        "isComplexType": false,
+        "isEnum": false,
+        "isString": false,
+        "isHttpCallback": false,
+        "description": "DataSetResult"
+      },
+      "parameters": [
+        {
+          "javaTypeName": "String",
+          "fullQualifiedJavaTypeName": "java.lang.String",
+          "isOptional": false,
+          "isRefOnly": false,
+          "isPayload": false,
+          "isComplexType": false,
+          "isEnum": false,
+          "isString": true,
+          "typeMirror": "java.lang.String",
+          "isHttpCallback": false,
+          "isArrayOrListOrMap": false,
+          "javaName": "datasetName",
+          "description": "Name of the dataSet"
+        }
+      ],
+      "apiDocUrl": "",
+      "javaName": "createDataSet",
+      "friendlyName": "Create data set",
+      "description": "Custom processor",
+      "xsdName": "create-data-set"
     }
   ],
   "filters": [],

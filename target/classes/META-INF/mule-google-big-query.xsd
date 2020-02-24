@@ -63,6 +63,27 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/google-big-query" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="Create-data-setType" substitutionGroup="mule:abstract-message-processor" name="create-data-set">
+    <xs:annotation>
+      <xs:documentation>Custom processor</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Create-data-setType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="datasetName">
+          <xs:annotation>
+            <xs:documentation>Name of the dataSet</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:simpleType name="OnNoTokenPolicyEnumType">
     <xs:union>
       <xs:simpleType>

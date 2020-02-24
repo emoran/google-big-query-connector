@@ -12,7 +12,7 @@ import org.mule.modules.googlebigquery.GoogleBigQueryConnector;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T02:17:32-05:00", comments = "Build UNNAMED.2810.4347dd1")
+@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T03:21:56-05:00", comments = "Build UNNAMED.2810.4347dd1")
 public class GoogleBigQueryConnectorCapabilitiesAdapter
     extends GoogleBigQueryConnector
     implements Capabilities
