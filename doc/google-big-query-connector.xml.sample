@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(google-big-query:greet) -->
+    <google-big-query:greet config-ref="" friend="#[map-payload:friend]" />
+<!-- END_INCLUDE(google-big-query:greet) -->
