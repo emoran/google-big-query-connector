@@ -16,4 +16,4 @@ Open Anypoint Studio, go to Help → Install New Software and select Anypoint Co
 # Reporting Issues
 
 Edgar Moran - yucel.moran@gmail.com
-http://github.com/mulesoft/google-big-query/issues.
+https://github.com/emoran/google-big-query-connector/issues
