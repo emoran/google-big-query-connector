@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.mule.modules</groupId>
     <artifactId>google-big-query-connector</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.7</version>
     <packaging>mule-module</packaging>
     <name>GoogleBigQuery Anypoint Connector</name>
 
@@ -21,7 +21,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
-    
+     
     <dependencies>
 	    	<dependency>
 			<groupId>com.google.cloud</groupId>
@@ -33,6 +33,12 @@
 	      <artifactId>guava</artifactId>
 	      <version>28.0-jre</version>
 	    </dependency>
+	    
+	     <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.1</version>
+        </dependency>
     </dependencies>
     
     <repositories>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Unofficial Google Big Query
 Bundle-SymbolicName: org.mule.tooling.ui.contribution.google-big-query.3.8.0;singleton:=true
-Bundle-Version: 1.0.5.202002241521
+Bundle-Version: 1.0.7.202002251852
 Bundle-Activator: org.mule.tooling.ui.contribution.GoogleBigQueryActivator
 Bundle-Vendor: 
 Require-Bundle: org.eclipse.ui,

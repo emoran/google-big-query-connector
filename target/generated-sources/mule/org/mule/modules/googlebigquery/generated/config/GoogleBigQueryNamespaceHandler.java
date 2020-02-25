@@ -14,7 +14,7 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-24T03:21:56-05:00", comments = "Build UNNAMED.2810.4347dd1")
+@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-25T06:52:34-05:00", comments = "Build UNNAMED.2810.4347dd1")
 public class GoogleBigQueryNamespaceHandler
     extends NamespaceHandlerSupport
 {
@@ -52,6 +52,11 @@ public class GoogleBigQueryNamespaceHandler
             this.registerBeanDefinitionParser("create-data-set", new CreateDataSetDefinitionParser());
         } catch (NoClassDefFoundError ex) {
             handleException("create-data-set", "@Processor", ex);
+        }
+        try {
+            this.registerBeanDefinitionParser("create-table", new CreateTableDefinitionParser());
+        } catch (NoClassDefFoundError ex) {
+            handleException("create-table", "@Processor", ex);
         }
     }
 

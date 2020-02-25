@@ -38,7 +38,7 @@
 	<classpathentry kind="var" path="M2_REPO/com/google/auth/google-auth-library-oauth2-http/0.16.2/google-auth-library-oauth2-http-0.16.2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/auth/google-auth-library-credentials/0.16.2/google-auth-library-credentials-0.16.2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/http-client/google-http-client-jackson2/1.30.1/google-http-client-jackson2-1.30.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.8.9/jackson-core-2.8.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/protobuf/protobuf-java-util/3.7.1/protobuf-java-util-3.7.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/protobuf/protobuf-java/3.7.1/protobuf-java-3.7.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar"/>
@@ -51,6 +51,8 @@
 	<classpathentry kind="var" path="M2_REPO/com/google/api/gax-httpjson/0.64.1/gax-httpjson-0.64.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/apis/google-api-services-bigquery/v2-rev20190623-1.30.1/google-api-services-bigquery-v2-rev20190623-1.30.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/checkerframework/checker-qual/2.8.1/checker-qual-2.8.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mule/mule-core/3.9.0/mule-core-3.9.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mule/extensions/mule-extensions-api/1.0.0-alpha-1/mule-extensions-api-1.0.0-alpha-1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar"/>
@@ -80,8 +82,6 @@
 	<classpathentry kind="var" path="M2_REPO/org/mule/common/mule-common/3.9.0/mule-common-3.9.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mulesoft/xmlbeans/xmlbeans/2.6.3/xmlbeans-2.6.3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/json/json/20140107/json-20140107.jar"/>
-	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.8.9/jackson-databind-2.8.9.jar"/>
-	<classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/antlr/antlr-runtime/3.5.2/antlr-runtime-3.5.2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/reflections/reflections/0.9.9/reflections-0.9.9.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/mule/tools/devkit/mule-devkit-annotations/3.9.4/mule-devkit-annotations-3.9.4.jar" sourcepath="M2_REPO/org/mule/tools/devkit/mule-devkit-annotations/3.9.4/mule-devkit-annotations-3.9.4-sources.jar"/>
