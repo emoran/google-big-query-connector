@@ -115,31 +115,41 @@ public class GoogleBigQueryConnector {
      */
     @Processor
     public CreateTable createTable(String tableName,String datasetName,String jsonSchema) 
-    		throws JsonMappingException, JsonProcessingException {		
-    		
+    		throws JsonMappingException, JsonProcessingException {	
+    	
+    		bigquery = config.bigquery;
     		CreateTable result = new CreateTable();
-    		ObjectMapper mapper = new ObjectMapper();
-        //String jsonSchema = "[{\"FieldName\":\"Name\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is name\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"EmployeeID\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Employee Id\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Age\",\"FieldType\":\"INTEGER\",\"fieldDescription\":\"This is Age\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"ContactNumber\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Contact Number\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Designation\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Designation\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Salary\",\"FieldType\":\"FLOAT\",\"fieldDescription\":\"This is Salary\",\"fieldMode\":\"NULLABLE\"}]";
-        List<TableFieldSchema>  fieldList =  mapper.readValue(jsonSchema, new TypeReference<List<TableFieldSchema>>(){});
+    	
+	    	try {
+	    		ObjectMapper mapper = new ObjectMapper();
+            //String jsonSchema = "[{\"FieldName\":\"Name\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is name\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"EmployeeID\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Employee Id\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Age\",\"FieldType\":\"INTEGER\",\"fieldDescription\":\"This is Age\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"ContactNumber\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Contact Number\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Designation\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Designation\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Salary\",\"FieldType\":\"FLOAT\",\"fieldDescription\":\"This is Salary\",\"fieldMode\":\"NULLABLE\"}]";
+            List<TableFieldSchema>  fieldList =  mapper.readValue(jsonSchema, new TypeReference<List<TableFieldSchema>>(){});
 
-        TableSchema tableSchema = new TableSchema().setFields(fieldList);
+            List<Field> schemaFieldSingle = new ArrayList<Field>();
 
-        List<Field> schemaFieldSingle = new ArrayList<Field>();
+            for(TableFieldSchema f :fieldList){
+              schemaFieldSingle.add(Field.of((String)f.get("FieldName"),getLegacy((String)f.get("FieldType"))));
+            }
 
-        for(TableFieldSchema f :fieldList){
-          schemaFieldSingle.add(Field.of((String)f.get("FieldName"),getLegacy((String)f.get("FieldType"))));
-        }
+            Schema schema = Schema.of(schemaFieldSingle);
 
-        Schema schema = Schema.of(schemaFieldSingle);
+            TableId tableId = TableId.of(datasetName, tableName);
+            TableDefinition tableDefinition = StandardTableDefinition.of(schema);
+            TableInfo tableInfo = TableInfo.newBuilder(tableId, tableDefinition).build();
 
-        TableId tableId = TableId.of(datasetName, tableName);
-        TableDefinition tableDefinition = StandardTableDefinition.of(schema);
-        TableInfo tableInfo = TableInfo.newBuilder(tableId, tableDefinition).build();
-
-        com.google.cloud.bigquery.Table table = bigquery.create(tableInfo);
-        
-        result.setSuccess(true);
-		result.setTableName(table.getGeneratedId());
+            com.google.cloud.bigquery.Table table = bigquery.create(tableInfo);
+            
+            result.setSuccess(true);
+	    		result.setTableName(table.getGeneratedId());
+	    		result.setResultMessage("Created");
+	    	}
+	    	catch(Exception er) {
+	    		logger.info("Error: "+er.getMessage());
+	    		result.setSuccess(false);
+	    		result.setResultMessage(er.getMessage());
+	    	}
+    		
+    		
 		
     		return result;
 	}

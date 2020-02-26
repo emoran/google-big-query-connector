@@ -2,7 +2,7 @@
 <?artifactRepository version='1.1.0'?>
 <repository name='file:/Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/update-site/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
   <properties size='2'>
-    <property name='p2.timestamp' value='1582674758481'/>
+    <property name='p2.timestamp' value='1582722274878'/>
     <property name='p2.compressed' value='false'/>
   </properties>
   <mappings size='3'>
@@ -11,19 +11,19 @@
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
   <artifacts size='2'>
-    <artifact classifier='org.eclipse.update.feature' id='org.mule.tooling.ui.extension.google-big-query-connector.3.8.0' version='1.0.7.202002251852'>
+    <artifact classifier='osgi.bundle' id='org.mule.tooling.ui.contribution.google-big-query.3.8.0' version='1.0.11.202002260804'>
+      <properties size='3'>
+        <property name='artifact.size' value='10016184'/>
+        <property name='download.size' value='10016184'/>
+        <property name='download.md5' value='35617d09a2d1dce6052e72c103c88c4b'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.mule.tooling.ui.extension.google-big-query-connector.3.8.0' version='1.0.11.202002260804'>
       <properties size='4'>
         <property name='artifact.size' value='666'/>
         <property name='download.size' value='666'/>
-        <property name='download.md5' value='ce6d4a95f645c46e2fe08d6f42dac5d5'/>
+        <property name='download.md5' value='ebe335a02d4ff4324b3c0b740a115881'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='org.mule.tooling.ui.contribution.google-big-query.3.8.0' version='1.0.7.202002251852'>
-      <properties size='3'>
-        <property name='artifact.size' value='10015988'/>
-        <property name='download.size' value='10015988'/>
-        <property name='download.md5' value='f412eaa1433f8ad1f6eebb2c3b77dbaf'/>
       </properties>
     </artifact>
   </artifacts>
