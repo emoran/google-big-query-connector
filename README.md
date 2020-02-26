@@ -1,4 +1,4 @@
-# GoogleBigQuery Anypoint Connector
+# GoogleBigQuery Anypoint Connector for 3.9.X version
 
 Google Big Query connector by emoran. (Support of basic operations)
 
