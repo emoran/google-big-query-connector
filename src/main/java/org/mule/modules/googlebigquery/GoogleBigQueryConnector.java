@@ -1,13 +1,16 @@
 package org.mule.modules.googlebigquery;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.emoran.CreateTable;
 import org.emoran.DataSetResult;
+import org.emoran.InsertDataResult;
 import org.mule.api.annotations.Config;
 import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Processor;
@@ -15,12 +18,14 @@ import org.mule.api.annotations.Processor;
 import org.mule.modules.googlebigquery.config.ConnectorConfig;
 
 import com.google.api.services.bigquery.model.TableFieldSchema;
-import com.google.api.services.bigquery.model.TableSchema;
 import com.google.cloud.bigquery.BigQuery;
 import com.google.cloud.bigquery.BigQueryException;
 import com.google.cloud.bigquery.Dataset;
 import com.google.cloud.bigquery.DatasetInfo;
 import com.google.cloud.bigquery.Field;
+import com.google.cloud.bigquery.InsertAllRequest;
+import com.google.cloud.bigquery.InsertAllRequest.RowToInsert;
+import com.google.cloud.bigquery.InsertAllResponse;
 import com.google.cloud.bigquery.Job;
 import com.google.cloud.bigquery.JobId;
 import com.google.cloud.bigquery.JobInfo;
@@ -122,7 +127,6 @@ public class GoogleBigQueryConnector {
     	
 	    	try {
 	    		ObjectMapper mapper = new ObjectMapper();
-            //String jsonSchema = "[{\"FieldName\":\"Name\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is name\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"EmployeeID\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Employee Id\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Age\",\"FieldType\":\"INTEGER\",\"fieldDescription\":\"This is Age\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"ContactNumber\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Contact Number\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Designation\",\"FieldType\":\"STRING\",\"fieldDescription\":\"This is Designation\",\"fieldMode\":\"NULLABLE\"},{\"FieldName\":\"Salary\",\"FieldType\":\"FLOAT\",\"fieldDescription\":\"This is Salary\",\"fieldMode\":\"NULLABLE\"}]";
             List<TableFieldSchema>  fieldList =  mapper.readValue(jsonSchema, new TypeReference<List<TableFieldSchema>>(){});
 
             List<Field> schemaFieldSingle = new ArrayList<Field>();
@@ -148,11 +152,47 @@ public class GoogleBigQueryConnector {
 	    		result.setSuccess(false);
 	    		result.setResultMessage(er.getMessage());
 	    	}
-    		
-    		
-		
     		return result;
 	}
+    
+    @Processor
+    public InsertDataResult insertRecords(String tableName, String dataSetName,String data) throws JsonMappingException, JsonProcessingException {
+    		InsertDataResult result = new InsertDataResult();
+	    	try {   		
+	        	
+	    	 	ObjectMapper mapper = new ObjectMapper();
+	    	 	List<Map<String,Object>>  fieldList = (List<Map<String, Object>>) mapper.readValue(data, new TypeReference<ArrayList<Map<String, Object>>>() {});
+	    	    TableId tableId = TableId.of(dataSetName, tableName);
+	    	    InsertAllRequest.Builder builder = InsertAllRequest.newBuilder(tableId);
+	
+	    	    for (Map<String,Object> row : fieldList) {
+	    	    		builder.addRow(row);
+	    	    }
+	    	    
+	    	    InsertAllResponse insertResponse = bigquery.insertAll(builder.build());
+	
+	    	    if (insertResponse.hasErrors()) {
+		    	    	result.setSuccess(false);
+	    	    		result.setFullresponse(insertResponse);
+	    	    		result.setHasErros(true);
+	    	    		result.setResultMessage("Some records were not inserted, please see full response");
+	    	    }
+	    	    else{
+	    	    		result.setSuccess(true);
+	    	    		result.setFullresponse(insertResponse);
+	    	    		result.setHasErros(false);
+	    	    		result.setResultMessage("All records inserted.");	    	    		
+	    	    }
+	    	}
+	    	catch(Exception er) {
+	    		result.setSuccess(false);
+	    		result.setHasErros(true);
+	    		result.setResultMessage("Error inserting data: "+er.getMessage());	    	  
+	    	}
+    	    
+    	    return result; 
+    		
+    }
     
     public static LegacySQLTypeName getLegacy(String fieldType){
 

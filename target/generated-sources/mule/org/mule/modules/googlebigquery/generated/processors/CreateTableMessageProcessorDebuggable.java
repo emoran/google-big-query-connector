@@ -17,7 +17,7 @@ import org.mule.util.ClassUtils;
 import org.mule.util.TemplateParser;
 
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-02-26T08:04:31-05:00", comments = "Build UNNAMED.2810.4347dd1")
+@Generated(value = "Mule DevKit Version 3.9.4", date = "2020-03-02T11:45:08-05:00", comments = "Build UNNAMED.2810.4347dd1")
 public class CreateTableMessageProcessorDebuggable
     extends CreateTableMessageProcessor
     implements DebugInfoProvider

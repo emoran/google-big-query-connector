@@ -9,11 +9,7 @@ import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.ConnectionException;
 import org.mule.api.ConnectionExceptionCode;
-import org.mule.api.annotations.display.Password;
-import org.mule.api.annotations.display.Placement;
-import org.mule.api.annotations.Configurable;
-import org.mule.api.annotations.param.Default;
-import org.mule.api.annotations.param.Optional;
+
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.oauth2.ServiceAccountCredentials;

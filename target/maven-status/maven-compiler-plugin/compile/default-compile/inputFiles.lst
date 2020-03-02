@@ -1,3 +1,4 @@
+/Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/config/InsertRecordsDefinitionParser.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/config/GoogleBigQueryNamespaceHandler.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/processors/CreateTableMessageProcessorDebuggable.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/adapters/GoogleBigQueryConnectorCapabilitiesAdapter.java
@@ -16,11 +17,14 @@
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/config/QueryDefinitionParser.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/adapters/GoogleBigQueryConnectorConnectionManagementAdapter.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/processors/QueryMessageProcessorDebuggable.java
+/Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/processors/InsertRecordsMessageProcessorDebuggable.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/pooling/DevkitGenericKeyedObjectPool.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/connectivity/ConnectorConfigGoogleBigQueryConnectorAdapter.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/processors/CreateTableMessageProcessor.java
+/Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/processors/InsertRecordsMessageProcessor.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/src/main/java/org/mule/modules/googlebigquery/config/ConnectorConfig.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/connectivity/ConnectionManagementConfigGoogleBigQueryConnectorConnectionKey.java
+/Users/edgarm/AnypointStudio/workspace/google-big-query-connector/src/main/java/org/emoran/InsertDataResult.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/adapter/PoolManager.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/agents/DefaultSplashScreenAgent.java
 /Users/edgarm/AnypointStudio/workspace/google-big-query-connector/target/generated-sources/mule/org/mule/modules/googlebigquery/generated/connectivity/GoogleBigQueryConnectorConfigConnectionManagementConnectionManager.java
