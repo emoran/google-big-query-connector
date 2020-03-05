@@ -156,6 +156,7 @@ public class GoogleBigQueryConnector {
     
     @Processor
     public InsertDataResult insertRecords(String tableName, String dataSetName,String data) throws JsonMappingException, JsonProcessingException {
+    		bigquery = config.bigquery;
     		InsertDataResult result = new InsertDataResult();
 	    	try {   		
 	        	

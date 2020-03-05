@@ -11,14 +11,14 @@ import org.mule.modules.googlebigquery.GoogleBigQueryConnector;
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.0", date = "2020-03-04T09:08:24-05:00", comments = "Build UNNAMED.2793.f49b6c7")
+@Generated(value = "Mule DevKit Version 3.9.0", date = "2020-03-04T05:10:19-05:00", comments = "Build UNNAMED.2793.f49b6c7")
 public class GoogleBigQueryConnectorMetadataAdapter
     extends GoogleBigQueryConnectorCapabilitiesAdapter
     implements MetadataAware
 {
 
     private final static String MODULE_NAME = "Unofficial Google Big Query";
-    private final static String MODULE_VERSION = "1.0.19";
+    private final static String MODULE_VERSION = "1.0.20";
     private final static String DEVKIT_VERSION = "3.9.0";
     private final static String DEVKIT_BUILD = "UNNAMED.2793.f49b6c7";
     private final static String MIN_MULE_VERSION = "3.8";
