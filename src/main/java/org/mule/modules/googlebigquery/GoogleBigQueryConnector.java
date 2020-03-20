@@ -1,5 +1,7 @@
 package org.mule.modules.googlebigquery;
 
+import java.net.Authenticator;
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -44,12 +46,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Connector(name="google-big-query", friendlyName="Unofficial Google Big Query", minMuleVersion="3.8")
 public class GoogleBigQueryConnector {
 	
-	 private static final Log logger = LogFactory.getLog(GoogleBigQueryConnector.class);
-
+	
+	private static final Log logger = LogFactory.getLog(GoogleBigQueryConnector.class);
     @Config
-    ConnectorConfig config;
+    ConnectorConfig config;    
+    BigQuery bigquery = null;
     
-    BigQuery bigquery=null;
 
     /**
      * Custom processor
@@ -58,6 +60,7 @@ public class GoogleBigQueryConnector {
      */
     @Processor
     public TableResult Query(String queryString) {
+    		
     		bigquery = config.bigquery;	
     		TableResult result = null;    		
     		try {
@@ -91,6 +94,7 @@ public class GoogleBigQueryConnector {
      */
     @Processor
     public DataSetResult createDataSet(String datasetName) {
+    		
     		bigquery = config.bigquery;
 		DataSetResult result = new DataSetResult();
 		try {
@@ -120,7 +124,7 @@ public class GoogleBigQueryConnector {
     @Processor
     public CreateTable createTable(String tableName,String datasetName,String jsonSchema) 
     		throws JsonMappingException, JsonProcessingException {	
-    	
+
     		bigquery = config.bigquery;
     		CreateTable result = new CreateTable();
     	
@@ -156,6 +160,7 @@ public class GoogleBigQueryConnector {
     
     @Processor
     public InsertDataResult insertRecords(String tableName, String dataSetName,String data) throws JsonMappingException, JsonProcessingException {
+
     		bigquery = config.bigquery;
     		InsertDataResult result = new InsertDataResult();
 	    	try {   		
@@ -192,6 +197,36 @@ public class GoogleBigQueryConnector {
     	    
     	    return result; 
     		
+    }
+    
+    @Processor
+    public TableResult truncateTable(String projectName,String dataSetName,String tableName) {
+
+    	bigquery = config.bigquery;	
+    	TableResult result = null;
+	    	try {
+	    	      QueryJobConfiguration queryConfig =
+	    	          QueryJobConfiguration.newBuilder("CREATE OR REPLACE TABLE `"+projectName+"."+dataSetName+"."+tableName+"` AS SELECT * FROM `"+projectName+"."+dataSetName+"."+tableName+"` LIMIT 0;")
+	    	              .setUseLegacySql(false)
+	    	              .build();
+	
+	    	      JobId jobId = JobId.of(UUID.randomUUID().toString());
+	    	      Job queryJob = bigquery.create(JobInfo.newBuilder(queryConfig).setJobId(jobId).build());
+	    	      queryJob = queryJob.waitFor();
+	    	      if (queryJob == null) {
+	    	        throw new RuntimeException("Job no longer exists");
+	    	      }
+	    	      else if (queryJob.getStatus().getError() != null) {
+	    	        throw new RuntimeException(queryJob.getStatus().getError().toString());
+	    	      }
+	    	      result = queryJob.getQueryResults();
+	    	      //System.out.println(queryJob.getQueryResults());
+    	    }
+    	    catch(Exception er) {
+    	      System.out.println(er.getMessage());
+    	    }
+	    	
+	    	return result;
     }
     
     public static LegacySQLTypeName getLegacy(String fieldType){

@@ -42,7 +42,7 @@ import org.mule.modules.googlebigquery.generated.pooling.DevkitGenericKeyedObjec
  * 
  */
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.0", date = "2020-03-04T05:10:19-05:00", comments = "Build UNNAMED.2793.f49b6c7")
+@Generated(value = "Mule DevKit Version 3.9.0", date = "2020-03-20T08:50:41-04:00", comments = "Build UNNAMED.2793.f49b6c7")
 public class GoogleBigQueryConnectorConfigConnectionManagementConnectionManager
     extends ExpressionEvaluatorSupport
     implements MetadataAware, MuleContextAware, ProcessAdapter<GoogleBigQueryConnectorConnectionManagementAdapter> , Capabilities, Disposable, Initialisable, Testable, ConnectionManagementConnectionManager<ConnectionManagementConfigGoogleBigQueryConnectorConnectionKey, GoogleBigQueryConnectorConnectionManagementAdapter, ConnectorConfig>
@@ -56,6 +56,10 @@ public class GoogleBigQueryConnectorConfigConnectionManagementConnectionManager
      * 
      */
     private String serviceAccountFile;
+    private String proxyHost;
+    private Integer proxyPort;
+    private String proxyUserName;
+    private String proxyPassword;
     /**
      * Mule Context
      * 
@@ -69,7 +73,7 @@ public class GoogleBigQueryConnectorConfigConnectionManagementConnectionManager
     protected PoolingProfile poolingProfile;
     protected RetryPolicyTemplate retryPolicyTemplate;
     private final static String MODULE_NAME = "Unofficial Google Big Query";
-    private final static String MODULE_VERSION = "1.0.20";
+    private final static String MODULE_VERSION = "2.0.0";
     private final static String DEVKIT_VERSION = "3.9.0";
     private final static String DEVKIT_BUILD = "UNNAMED.2793.f49b6c7";
     private final static String MIN_MULE_VERSION = "3.8";
@@ -106,6 +110,74 @@ public class GoogleBigQueryConnectorConfigConnectionManagementConnectionManager
      */
     public String getServiceAccountFile() {
         return this.serviceAccountFile;
+    }
+
+    /**
+     * Sets proxyHost
+     * 
+     * @param value Value to set
+     */
+    public void setProxyHost(String value) {
+        this.proxyHost = value;
+    }
+
+    /**
+     * Retrieves proxyHost
+     * 
+     */
+    public String getProxyHost() {
+        return this.proxyHost;
+    }
+
+    /**
+     * Sets proxyPort
+     * 
+     * @param value Value to set
+     */
+    public void setProxyPort(Integer value) {
+        this.proxyPort = value;
+    }
+
+    /**
+     * Retrieves proxyPort
+     * 
+     */
+    public Integer getProxyPort() {
+        return this.proxyPort;
+    }
+
+    /**
+     * Sets proxyUserName
+     * 
+     * @param value Value to set
+     */
+    public void setProxyUserName(String value) {
+        this.proxyUserName = value;
+    }
+
+    /**
+     * Retrieves proxyUserName
+     * 
+     */
+    public String getProxyUserName() {
+        return this.proxyUserName;
+    }
+
+    /**
+     * Sets proxyPassword
+     * 
+     * @param value Value to set
+     */
+    public void setProxyPassword(String value) {
+        this.proxyPassword = value;
+    }
+
+    /**
+     * Retrieves proxyPassword
+     * 
+     */
+    public String getProxyPassword() {
+        return this.proxyPassword;
     }
 
     /**
@@ -264,6 +336,10 @@ public class GoogleBigQueryConnectorConfigConnectionManagementConnectionManager
     @Override
     public ConnectionManagementConnectionAdapter newConnection() {
         ConnectorConfigGoogleBigQueryConnectorAdapter connection = new ConnectorConfigGoogleBigQueryConnectorAdapter();
+        connection.setProxyHost(getProxyHost());
+        connection.setProxyPort(getProxyPort());
+        connection.setProxyUserName(getProxyUserName());
+        connection.setProxyPassword(getProxyPassword());
         return connection;
     }
 

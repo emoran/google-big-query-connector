@@ -41,6 +41,12 @@
         <string name="serviceAccountId" caption="Service Account Id" description="" required="true" javaType="java.lang.String"></string>
         <string name="serviceAccountFile" caption="Service Account File" description="" required="true" javaType="java.lang.String"></string>
       </group>
+      <group id="proxy Settings" caption="Proxy Settings">
+        <string defaultValue="http://httpproxy.smfc.twitter.com" name="proxyHost" caption="Host" description="Hostname of the proxy. If this property is not set then no proxy is used, otherwise proxy is going to be used but host can not be empty." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <integer defaultValue="3128" min="0" step="1" name="proxyPort" caption="Port" description="Port of the proxy. If host is set then this property has to be set and can not be a negative number." supportsExpressions="false" required="false" javaType="java.lang.Integer"></integer>
+        <string name="proxyUserName" caption="User Name" description="Port of the proxy. If host is set then this property has to be set and can not be a negative number." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <password name="proxyPassword" caption="Password" description="Password used to authenticate against the proxy." supportsExpressions="false" required="false" javaType="java.lang.String"></password>
+      </group>
     </attribute-category>
     <attribute-category caption="Pooling Profile" description="Pooling profile options.">
       <group id="poolingProfile" caption="Pooling Profile">
@@ -70,6 +76,7 @@
           <mode modeId="http://www.mulesoft.org/schema/mule/google-big-query/create-table" modeLabel="Create table"></mode>
           <mode modeId="http://www.mulesoft.org/schema/mule/google-big-query/insert-records" modeLabel="Insert records"></mode>
           <mode modeId="http://www.mulesoft.org/schema/mule/google-big-query/query" modeLabel="Query"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/google-big-query/truncate-table" modeLabel="Truncate table"></mode>
         </modeSwitch>
       </group>
     </attribute-category>
@@ -103,6 +110,15 @@
     <attribute-category caption="General" description="General.">
       <group id="general" caption="General">
         <string name="queryString" caption="Query String" description="The query to execute against google big query." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="com.google.cloud.bigquery.TableResult" caption="Truncate Table" icon="icons/theme.classic/google-big-query-connector-small.png" localId="truncate-table" image="icons/theme.classic/google-big-query-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/google-big-query/abstractGoogle-big-queryConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="dataSetName" caption="Data Set Name" description="" required="true" javaType="java.lang.String"></string>
+        <string name="projectName" caption="Project Name" description="" required="true" javaType="java.lang.String"></string>
+        <string name="tableName" caption="Table Name" description="" required="true" javaType="java.lang.String"></string>
       </group>
     </attribute-category>
   </cloud-connector>

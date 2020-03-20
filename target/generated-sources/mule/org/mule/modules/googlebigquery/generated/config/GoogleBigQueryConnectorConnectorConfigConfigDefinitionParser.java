@@ -18,7 +18,7 @@ import org.springframework.util.xml.DomUtils;
 import org.w3c.dom.Element;
 
 @SuppressWarnings("all")
-@Generated(value = "Mule DevKit Version 3.9.0", date = "2020-03-04T05:10:19-05:00", comments = "Build UNNAMED.2793.f49b6c7")
+@Generated(value = "Mule DevKit Version 3.9.0", date = "2020-03-20T08:50:41-04:00", comments = "Build UNNAMED.2793.f49b6c7")
 public class GoogleBigQueryConnectorConnectorConfigConfigDefinitionParser
     extends AbstractDevkitBasedDefinitionParser
 {
@@ -35,6 +35,10 @@ public class GoogleBigQueryConnectorConnectorConfigConfigDefinitionParser
         builder.setScope(BeanDefinition.SCOPE_SINGLETON);
         setInitMethodIfNeeded(builder, GoogleBigQueryConnectorConfigConnectionManagementConnectionManager.class);
         setDestroyMethodIfNeeded(builder, GoogleBigQueryConnectorConfigConnectionManagementConnectionManager.class);
+        parseProperty(builder, element, "proxyHost", "proxyHost");
+        parseProperty(builder, element, "proxyPort", "proxyPort");
+        parseProperty(builder, element, "proxyUserName", "proxyUserName");
+        parseProperty(builder, element, "proxyPassword", "proxyPassword");
         parseProperty(builder, element, "serviceAccountId", "serviceAccountId");
         parseProperty(builder, element, "serviceAccountFile", "serviceAccountFile");
         BeanDefinitionBuilder poolingProfileBuilder = BeanDefinitionBuilder.rootBeanDefinition(PoolingProfile.class.getName());

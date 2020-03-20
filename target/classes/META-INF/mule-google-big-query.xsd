@@ -28,6 +28,26 @@
               <xs:documentation>Give a name to this configuration so it can be later referenced by config-ref.</xs:documentation>
             </xs:annotation>
           </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" default="http://httpproxy.smfc.twitter.com" name="proxyHost">
+            <xs:annotation>
+              <xs:documentation>Hostname of the proxy. If this property is not set then no proxy is used, otherwise proxy is going to be used but host can not be empty.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute xmlns="http://www.mulesoft.org/schema/mule/google-big-query" type="integerType" use="optional" default="3128" name="proxyPort">
+            <xs:annotation>
+              <xs:documentation>Port of the proxy. If host is set then this property has to be set and can not be a negative number.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="proxyUserName">
+            <xs:annotation>
+              <xs:documentation>Port of the proxy. If host is set then this property has to be set and can not be a negative number.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+          <xs:attribute type="xs:string" use="optional" name="proxyPassword">
+            <xs:annotation>
+              <xs:documentation>Password used to authenticate against the proxy.</xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
           <xs:attribute type="xs:string" use="required" name="serviceAccountId">
             <xs:annotation>
               <xs:documentation></xs:documentation>
@@ -139,6 +159,37 @@
           </xs:annotation>
         </xs:attribute>
         <xs:attribute type="xs:string" use="required" name="data">
+          <xs:annotation>
+            <xs:documentation></xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns="http://www.mulesoft.org/schema/mule/google-big-query" xmlns:mule="http://www.mulesoft.org/schema/mule/core" type="Truncate-tableType" substitutionGroup="mule:abstract-message-processor" name="truncate-table">
+    <xs:annotation>
+      <xs:documentation></xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Truncate-tableType">
+    <xs:complexContent>
+      <xs:extension xmlns:mule="http://www.mulesoft.org/schema/mule/core" base="mule:abstractMessageProcessorType">
+        <xs:attribute type="xs:string" use="required" name="config-ref">
+          <xs:annotation>
+            <xs:documentation>Specify which configuration to use for this invocation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="projectName">
+          <xs:annotation>
+            <xs:documentation></xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="dataSetName">
+          <xs:annotation>
+            <xs:documentation></xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute type="xs:string" use="required" name="tableName">
           <xs:annotation>
             <xs:documentation></xs:documentation>
           </xs:annotation>
